@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        #icone{
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            transform-origin: center;
+
+        }
+        .div{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            
+        }
+        .modal{
+            width: 700px;
+            height: 400px;
+            background-image: url(assets/Images/wood-modal-bg.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .animation-modal{
+            animation: modal 1s linear;
+
+        }
+        .zoom{
+            transform: scale(1.4);
+        }
+        button{
+            background-color: #603F24;
+            width: 30%;
+            height: 10%;
+            color: white;
+            border: none;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            cursor: pointer;
+        }
+        @keyframes modal {
+            0%{
+                transform: translateY(0);
+            }20%{
+                transform: translateY(-80%);
+                opacity: 0.5;
+            }60%{
+                transform: translateY(-160%);
+                opacity: 0.1;
+            }100%{
+                transform: translateY(-300%);
+                opacity: 0;
+                display: none;
+
+            }
+        }
+        #obj{
+           position: absolute;
+           top: 65%;
+           left:  25%;
+           height: 190px;
+           width: calc(750px/6);
+           background-image: url(assets/Images/personagem-sprites.png);
+           background-size: 750px 190px;
+           background-repeat: no-repeat;
+           background-position: -630px 0;
+           display: none;
+        }
+        .andar{
+            animation: andar .5s infinite steps(6);
+        }
+        @keyframes andar {
+            from{
+                background-position:0 0;
+            }
+            to{
+                background-position: -750px 0;
+            }
+        }
+     
+    </style>
+</head>
+<body>
+    <img id="icone" src="assets/SVGs/main_screen.svg" >
+
+    <div id="obj">
+        </div>
+
+        
+
+    <div id="modal" class="modal">
+        <h1 style="color: #603F24;font-weight: bold;">Seja bem vindo!</h1>
+
+        <button onclick="modal()" style="margin-top: 30px;"> Iniciar campanha</button>
+    </div> 
+    <script src="index.js"></script>
+</body>
+</html>
