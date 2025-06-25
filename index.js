@@ -36,7 +36,7 @@ function modal() {
     }, 1000);
 }
 
-document.addEventListener('keypress', function (event) {
+document.addEventListener('keydown', function (event) {
 
     if (event.key === 'd') {
         if (virado === true) {
@@ -64,7 +64,12 @@ document.addEventListener('keypress', function (event) {
         setTimeout(() => {
             obj.classList.remove('andar');
         }, 1000);
+    } else if (event.key == 'Shift'){
+       
+            obj.classList.add('direita');
+
     }
+    
 });
 function fo_modal(){
     document.getElementById('fo-modal').style.display = 'flex';
@@ -104,6 +109,8 @@ document.addEventListener('keypress', function (event) {
         if (leftGreen <= leftbar && rightbar <= rightGreen) {
             console.log('a')
             document.getElementById('doce').style.filter = ' brightness(1) saturate(1)'
+            document.getElementById('h-esc').innerHTML = '✔'
+            document.getElementById('h-esc').style.color = 'green'
         }
 
         document.getElementById('white-bar').classList.remove('spin')
@@ -141,6 +148,8 @@ cards.forEach(elemet => {
                 if(points == 3){
                     setTimeout(()=>{
                         document.getElementById('me-modal').classList.add('animation-modal')
+                        document.getElementById('h-esc2').innerHTML = '✔'
+                        document.getElementById('h-esc2').style.color = 'green'
                         setTimeout(() => {
                             document.getElementById('me-modal').style.display = 'none'
                         }, 1000);
@@ -182,3 +191,4 @@ function Fullscreen() {
 }
 
 btn.addEventListener('click',Fullscreen);
+
